@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
-        tv.setText(stringFromJNI());
+        //tv.setText(stringFromJNI());
+        callJavaHelloWorld2();
     }
 
     /**
@@ -31,8 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     public native void callJavaHelloWorld2();
 
-    public void helloWorld2(String msg) {
-        Log.i("ndkDemo", "hello world " + msg);
+    public void helloWorld(String msg) {
+        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
+       // Log.i("ndkDemo", "hello world " + msg);
     }
 
 }

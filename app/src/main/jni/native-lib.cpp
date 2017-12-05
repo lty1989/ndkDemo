@@ -20,7 +20,11 @@ extern "C"
 JNIEXPORT void JNICALL
 Java_ndkdemo_com_ndkdemo_MainActivity_callJavaHelloWorld2(JNIEnv *env, jobject instance) {
     jclass clazz = env->GetObjectClass(instance);
-    if(clazz==NULL) return;
-    jmethodID helloWorld_methodID=env->GetMethodID(clazz,"helloWorld","(java/lang/String;)V");
+    if (clazz == NULL) return;
+    jmethodID helloWorld_methodID = env->GetMethodID(clazz, "helloWorld", "(Ljava/lang/String;)V");
+    if (helloWorld_methodID == NULL) return;
+    const char *msg = "hello world";
+    jstring jmsg = env->NewStringUTF(msg);
+    env->CallVoidMethod(instance, helloWorld_methodID, jmsg);
 
 }
