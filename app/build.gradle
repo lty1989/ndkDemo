@@ -14,6 +14,9 @@ android {
             cmake {
                 cppFlags "-std=c++11"
             }
+            ndkBuild {
+                arguments "NDK_TOOLCHAIN_VERSION=4.9"
+            }
         }
     }
     buildTypes {

@@ -31,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
      */
     public native String stringFromJNI();
 
+    public native void startNativeThread(int count);
+
     public native void callJavaHelloWorld2();
 
     public void helloWorld(String msg) {
-        Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
-       // Log.i("ndkDemo", "hello world " + msg);
+        Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+        startNativeThread(20);
+        // Log.i("ndkDemo", "hello world " + msg);
     }
 
 }
